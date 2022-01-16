@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/AndreSmrnv/VM_excel#readme",
   "devDependencies": {
+    "copy-webpack-plugin": "^10.2.0",
+    "favicons": "^6.2.2",
+    "favicons-webpack-plugin": "^5.0.2",
+    "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.66.0",
     "webpack-cli": "^4.9.1"
   }
