@@ -53,7 +53,7 @@ module.exports = (env, args) => {
     },
     devServer: {
       port: 3003,
-      // open: true,
+      open: true,
       hot: true,
       watchFiles: './',
     },
