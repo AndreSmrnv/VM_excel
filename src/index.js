@@ -1,3 +1,12 @@
+import Excel from '@/components/Excel';
 import './less/index.less';
 
-console.log('Hello world!')
+const excel = new Excel(
+    '#app',
+    {
+              components: []
+            }
+)
+
+console.log('Excel components', excel)
+
