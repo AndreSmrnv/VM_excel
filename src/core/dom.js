@@ -18,8 +18,8 @@ class Dom {
     return this
   }
 
-  on() {
-
+  on(eventType, callback) {
+    this.$el.addEventListener(eventType, callback)
   }
 
   append(node) {
@@ -37,7 +37,7 @@ class Dom {
   }
 }
 
-
+// event.target
 export function $(selector) {
   return new Dom(selector)
 }
