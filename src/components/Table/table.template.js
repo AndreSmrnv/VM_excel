@@ -28,17 +28,21 @@ function toChar(_, index) {
   return String.fromCharCode(CODES.A + index)
 }
 
-export function createTable(rowsCount = 15) {
-  const colsCount = CODES.Z - CODES.A + 1
-  const rows = []
-
+const headerRow = (colsCount) => {
   const cols = new Array(colsCount)
       .fill('')
       .map(toChar)
       .map(toColumn)
       .join('')
 
-  rows.push(createRow(cols))
+   return createRow(cols)
+}
+
+export function createTable(rowsCount = 45) {
+  const colsCount = CODES.Z - CODES.A + 1
+  const rows = []
+
+  rows.push(headerRow(colsCount))
 
   for (let i = 0; i < rowsCount; i++) {
     rows.push(createRow())
