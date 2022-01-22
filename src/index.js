@@ -1,3 +1,21 @@
+import Excel    from '@/components/Excel';
+import Header   from '@/components/Header';
+import Toolbar  from '@/components/Toolbar';
+import Formula  from '@/components/Formula';
+import Table    from '@/components/Table';
 import './less/index.less';
 
-console.log('Hello world!')
+const excel = new Excel(
+    '#app',
+    {
+      components: [
+        Header,
+        Toolbar,
+        Formula,
+        Table
+      ]
+    }
+)
+
+excel.render()
+
