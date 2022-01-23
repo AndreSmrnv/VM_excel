@@ -19,6 +19,7 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'indent': 'off',
     'arrow-parens': 'off',
-    'operator-linebreak': 'off'
+    'operator-linebreak': 'off',
+    'quotes': 'off'
   }
 }

@@ -1,5 +1,5 @@
 import {Table} from '@/components/Table/Table';
-import {createTable} from '@/components/Table/template';
+import {createTable} from '@/components/Table/table.template';
 
 export default Table;
 
