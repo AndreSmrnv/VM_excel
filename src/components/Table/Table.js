@@ -21,25 +21,31 @@ export class Table extends ExcelComponent {
             const $parent = $resizer.closest('[data-type="resizable"]')
 
             const coords = $parent.getCoords()
-            const typeResize = $resizer.data.resize
+            const typeResizeElem = $resizer.data.resize
 
-            const cellsResize = (typeResize === 'col')
+            const cellsResize = (typeResizeElem === 'col')
                 ? this.$root.findAll(`[data-col="${$parent.data.col}"]`)
                 : [];
 
-            document.onmousemove = e => {
-                if (typeResize === 'col') {
-                    const delta = e.pageX - coords.right
-                    const widthCol = coords.width + delta
-                    $parent.css({width: `${widthCol}px`})
-                    cellsResize.forEach(el => el.style.width = widthCol + 'px')
-                } else {
-                    const delta = e.pageY - coords.bottom
-                    const heightRow = coords.height + delta
-                    $parent.css({height: `${heightRow}px`})
-                }
-                //console.log($parent.$el.style)
+            const resizeCol = (e) => {
+                const delta = e.pageX - coords.right
+                const widthCol = coords.width + delta
+                cellsResize.forEach(el => el.style.width = `${widthCol}px`)
             }
+
+            const resizeRow = (e) => {
+                const delta = e.pageY - coords.bottom
+                const heightRow = coords.height + delta
+                $parent.css({height: `${heightRow}px`})
+            }
+
+            const resizesElem = {
+                col: resizeCol,
+                row: resizeRow
+            }
+
+            document.onmousemove = e => resizesElem[typeResizeElem]
+                && resizesElem[typeResizeElem](e);
 
             document.onmouseup = () => {
                 document.onmousemove = null
